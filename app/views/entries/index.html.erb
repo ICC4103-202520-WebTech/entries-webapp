@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Reflexiones</h1>
+
+  <%= link_to "Nueva", new_entry_path, class: "btn btn-primary" %>
+
+  <ul>
+    <% @entries.each do |entry| %>
+      <li><%= link_to entry.title, entry_path(entry) %> - <%= link_to "Eliminar", entry_path(entry), data: { turbo_method: :delete, turbo_confirm: "Estás seguro que quieres eliminarlo?" } %></li>
+    <% end %>
+  </ul>
+</div>

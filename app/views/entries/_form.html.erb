@@ -1,0 +1,12 @@
+<%= form_with model: @entry do |f|%>
+  <div class="col-4">
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: "Título de la reflexión" %>
+  </div>
+
+  <div class="col-8">
+    <%= f.text_area :body %>
+  </div>
+
+  <%= f.submit "Guardar", class: "btn btn-primary" %>
+<% end %>
