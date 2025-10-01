@@ -40,7 +40,7 @@ class EntriesController < ApplicationController
   private
     # Strong parameters
     def entry_params
-      params.require(:entry).permit(:title, :body)
+      params.require(:entry).permit(:title, :content)
     end
 
     def set_entry
