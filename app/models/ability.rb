@@ -4,7 +4,12 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    cannot :new, Entry
+    if user.role_normal?
+      cannot :new, Entry
+    end
+    if user.role_admin?
+      can :new, Entry
+    end
     # Define abilities for the user here. For example:
     #
     #   return unless user.present?
