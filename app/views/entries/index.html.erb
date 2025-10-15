@@ -1,7 +1,9 @@
 <div class="container">
   <h1>Reflexiones</h1>
 
-  <%= link_to "Nueva", new_entry_path, class: "btn btn-primary" %>
+  <% if can?(:new, Entry) %>
+    <%= link_to "Nueva", new_entry_path, class: "btn btn-primary" %>
+  <% end %>
 
   <ul>
     <% @entries.each do |entry| %>

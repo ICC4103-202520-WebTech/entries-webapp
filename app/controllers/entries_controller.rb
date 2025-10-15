@@ -1,6 +1,7 @@
 class EntriesController < ApplicationController
   # before_action :authenticate_user!, except: [:index, :show]
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
+  # authorize_resource
   
   def index
     @entries = Entry.all
@@ -11,6 +12,7 @@ class EntriesController < ApplicationController
   
   def new
     @entry = Entry.new
+    authorize! :new, Entry
   end
 
   def create
